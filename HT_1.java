@@ -9,14 +9,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class HT_1 {
-    
     public static void main(String[] args) {
-        Random num = new Random();
+        int[] arr = new int[5];
         Scanner iScanner = new Scanner(System.in);
         System.out.println("Введите целое число от 1 до 10 для поиска");
         System.out.println("Я найду его индекс в массиве или скажу, что его нет =)");
         int find = iScanner.nextInt();
-        initArray();
+        initArray(arr);
         sortArray(arr);
         printArray(arr);
         if (Search(arr, find, 0, arr.length - 1) == -1) {
@@ -28,14 +27,13 @@ public class HT_1 {
         }
         iScanner.close();
     }
-        
-    public static int[] initArray() {    
-        int[] arr = new int[5];
-        for (int index = 0; index < arr.length; index++) {
-            arr[index] = num.nextInt((10 - 1) + 1) + 1;
+    public static int[] initArray(int[] Array) {    
+        Random num = new Random();
+        for (int index = 0; index < Array.length; index++) {
+            Array[index] = num.nextInt((10 - 1) + 1) + 1;
             // System.out.print(arr[index] + " ");
         }
-        return arr;
+        return Array;
     }
 
     public static int[] sortArray(int[] Array) {
@@ -46,8 +44,8 @@ public class HT_1 {
     }
 
     public static void printArray(int[] Array) {    
-        for (int index = 0; index < arr.length; index++) {
-            System.out.print(arr[index] + " ");
+        for (int index = 0; index < Array.length; index++) {
+            System.out.print(Array[index] + " ");
         }
     }
     private static int Search(int[] Array, int find, int low, int high) {
